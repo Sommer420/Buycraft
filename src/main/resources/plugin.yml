@@ -1,0 +1,21 @@
+name: Buycraft
+version: '${project.version}'
+main: com.sommer.buycraft.Main
+api-version: 1.19
+prefix: SommerTest
+authors: [ Sommer ]
+description: Sommer buycraft plugin
+depend:
+  - HeadDatabase
+softdepend:
+  - Vault
+commands:
+  buy:
+    usage: buy
+    aliases: [ Butik, Buycraft, Store ]
+    permission: admin
+    permission-message: §4§n/!\§4 Under udvikling.
+    description: Åben buycraft
+  Coins:
+    aliases: [ Coin ]
+    description: Coins kommando

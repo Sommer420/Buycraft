@@ -1,0 +1,42 @@
+#Du kan bruge både & og §.
+
+guis:
+  start:
+    guinavn: §3§lBUTIK§8 • §f§lSTART
+    guirækker: 5
+    luk:
+      id: 3229
+      slot: 44
+      name: §cLuk siden
+      lore:
+        - "§7Tryk her for at lukke siden."
+    head1:
+      id: 46947
+      slot: 20
+      name: §a§l§nRANKS
+      lore:
+        - "§fTryk her for at gå til §a§nranks§f!"
+        - "§fIndeholder:"
+        - "§8» §6§nKAPTAJN§f §nRANK"
+        - "§8» §3§nSØMAND§f §nRANK"
+        - "§8» §c§nSKIPPER§f §nRANK"
+        - "§8» §d§nMATROS§f §nRANK"
+    head2:
+      id: 46948
+      slot: 22
+      name: §5§l§nBOOSTERE
+      lore:
+      - "§fTryk her for at gå til §5§nboostere§f!"
+      - "§fIndeholder:"
+      - "§8» §5§nXP§f §nBOOSTERE"
+      - "§8» §6§nMONEY§f §nBOOSTERE"
+    head3:
+      id: 46946
+      slot: 24
+      name: §b§l§nANDET
+      lore:
+      - "§fTryk her for at gå til §b§nandet§f!"
+      - "§fIndeholder:"
+      - "§8» §a§nAUTO§f §nSELL"
+      - "§8» §b§nFLY§f §nKOMMANDO"
+      - "§8» §9§nFISKENET"
