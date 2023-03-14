@@ -1,6 +1,7 @@
 package com.sommer.buycraft;
 
 import com.sommer.buycraft.coins.CoinCommand;
+import com.sommer.buycraft.guis.GuiManager;
 import com.sommer.buycraft.utils.Config;
 import me.arcaniax.hdb.api.HeadDatabaseAPI;
 import org.bukkit.Bukkit;
@@ -16,6 +17,9 @@ import java.io.File;
 //TODO: Lave så man kan trykke fra buy > boostere > money & xp > køb
 //TODO: Gøre så man kan købe ting i buy, med de coins man har.
 //TODO: Implementere SuperPay/Superawesomes betalingssystem, når man kan det.
+
+//TODO: Lave en autohealer til configen. Altså, hvis der mangler noget i den, nulstiller
+//TODO: den automatisk det der mangler, så det bliver som om den lavede filen igen.
 
 public final class Main extends JavaPlugin implements Listener {
     public static HeadDatabaseAPI HDBapi = new HeadDatabaseAPI();
@@ -34,6 +38,7 @@ public final class Main extends JavaPlugin implements Listener {
         if (!(new File(getDataFolder(), "guiconfig.yml")).exists())saveResource("guiconfig.yml", false);
         guiConfig = new Config(this, null, "guiconfig.yml");
         guiConfigYML = guiConfig.getConfig();
+        //new GuiManager();
         new BuyCommand(this);
         Bukkit.getPluginManager().registerEvents(this, (Plugin)this);
         getCommand("buy").setExecutor(new BuyCommand(this));
@@ -49,15 +54,6 @@ public final class Main extends JavaPlugin implements Listener {
     public void onDisable() {
         System.out.println(ChatColor.RED + "Pluginet slået fra..");
     }
-/*
-    @EventHandler
-    public void clickEvent(InventoryClickEvent e){
-        if (e.getClickedInventory().getTitle().equalsIgnoreCase("Tissemand")){
-            Player p = (Player) e.getWhoClicked();
-            p.sendMessage("§aDu trykkede på slot §b" + e.getSlot());
-            e.setCancelled(true);
-        }
-    }*/
 
 
 

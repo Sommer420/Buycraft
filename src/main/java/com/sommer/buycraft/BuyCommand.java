@@ -3,11 +3,9 @@ package com.sommer.buycraft;
 import com.sommer.buycraft.guis.Andet;
 import com.sommer.buycraft.guis.Boostere;
 import com.sommer.buycraft.guis.Ranks;
-import com.sun.org.apache.xerces.internal.xs.StringList;
 import dev.triumphteam.gui.builder.item.ItemBuilder;
 import dev.triumphteam.gui.guis.Gui;
 import net.kyori.adventure.text.Component;
-import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -27,10 +25,10 @@ public class BuyCommand implements CommandExecutor {
 
     public static void openBuyStart(Player player){
         String guiNavn = guiConfigYML.getString("guis.start.guinavn").toString();
-        int guiRækker = guiConfigYML.getInt("guis.start.guirækker");
+        int guiRows = guiConfigYML.getInt("guis.start.guirows");
         Gui gui = Gui.gui()
                 .title(Component.text(guiNavn))
-                .rows(guiRækker) //Med .rows() er det en kiste,
+                .rows(guiRows) //Med .rows() er det en kiste,
                 //.type(GuiType.DISPENSER) sådan er det en dispenser. Det kræver dog, at der ik er nogle rows.
                 .create();
         gui.disableAllInteractions();
@@ -47,35 +45,35 @@ public class BuyCommand implements CommandExecutor {
             event.getWhoClicked().closeInventory();
         }));
 
-        String head1Id = guiConfigYML.getString("guis.start.head1.id");
+
+        int head1Id = guiConfigYML.getInt("guis.start.head1.id");
         int head1Slot = guiConfigYML.getInt("guis.start.head1.slot");
         String head1Name = guiConfigYML.getString("guis.start.head1.name").replace("&", "§");
         List<String> head1Lore = guiConfigYML.getStringList("guis.start.head1.lore");
 
-        String head2Id = guiConfigYML.getString("guis.start.head2.id");
+        int head2Id = guiConfigYML.getInt("guis.start.head2.id");
         int head2Slot = guiConfigYML.getInt("guis.start.head2.slot");
         String head2Name = guiConfigYML.getString("guis.start.head2.name").replace("&", "§");
         List<String> head2Lore = guiConfigYML.getStringList("guis.start.head2.lore");
 
-        String head3Id = guiConfigYML.getString("guis.start.head3.id");
+        int head3Id = guiConfigYML.getInt("guis.start.head3.id");
         int head3Slot = guiConfigYML.getInt("guis.start.head3.slot");
         String head3Name = guiConfigYML.getString("guis.start.head3.name").replace("&", "§");
         List<String> head3Lore = guiConfigYML.getStringList("guis.start.head3.lore");
 
 
-        gui.setItem(head1Slot, ItemBuilder.from(Main.HDBapi.getItemHead(head1Id.toString())).name(Component.text(head1Name.toString())).setLore(head1Lore).asGuiItem(event -> {
+        gui.setItem(head1Slot, ItemBuilder.from(Main.HDBapi.getItemHead(String.valueOf(head1Id))).name(Component.text(head1Name.toString())).setLore(head1Lore).asGuiItem(event -> {
             Ranks.openRankGui((Player) event.getWhoClicked());
         }));
 
-        gui.setItem(head2Slot, ItemBuilder.from(Main.HDBapi.getItemHead(head2Id.toString())).name(Component.text(head2Name.toString())).setLore(head2Lore).asGuiItem(event -> {
-            Player p = (Player) event.getWhoClicked();
-            Boostere.openBoostereGui((Player) player);
+        gui.setItem(head2Slot, ItemBuilder.from(Main.HDBapi.getItemHead(String.valueOf(head2Id))).name(Component.text(head2Name.toString())).setLore(head2Lore).asGuiItem(event -> {
+            Boostere.openBoostereGui((Player) event.getWhoClicked());
         }));
 
-        gui.setItem(head3Slot, ItemBuilder.from(Main.HDBapi.getItemHead(head3Id.toString())).name(Component.text(head3Name.toString())).setLore(head3Lore).asGuiItem(event -> {
-            Player p = (Player) event.getWhoClicked();
-            Andet.openAndetGui((Player) player);
+        gui.setItem(head3Slot, ItemBuilder.from(Main.HDBapi.getItemHead(String.valueOf(head3Id))).name(Component.text(head3Name.toString())).setLore(head3Lore).asGuiItem(event -> {
+            Andet.openAndetGui((Player) event.getWhoClicked());
         }));
+
 
         gui.open((Player) player);
     }
@@ -84,7 +82,9 @@ public class BuyCommand implements CommandExecutor {
     public boolean onCommand(CommandSender player, Command cmd, String label, String[] args) {
         if (player instanceof Player){
             if (args.length == 0) {
-                openBuyStart((Player) player);
+                BuyCommand.openBuyStart((Player) player);
+                //Ranks.openRankGui((Player) player);
+                //GuiManager.openGui((HumanEntity) player, Guis.START);
             } else if (args.length == 1) {
                 if (args[0].equalsIgnoreCase("reload")){
                     if (player.hasPermission("admin")){

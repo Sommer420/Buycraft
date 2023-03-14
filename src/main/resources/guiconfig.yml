@@ -1,9 +1,10 @@
 #Du kan bruge både & og §.
+#commands: delen er de kommandoer der sker, når man køber tingen. <player> er en placeholder for spillerens navn.
 
 guis:
   start:
     guinavn: §3§lBUTIK§8 • §f§lSTART
-    guirækker: 5
+    guirows: 5
     luk:
       id: 3229
       slot: 44
@@ -11,16 +12,16 @@ guis:
       lore:
         - "§7Tryk her for at lukke siden."
     head1:
-      id: 46947
-      slot: 20
-      name: §a§l§nRANKS
-      lore:
-        - "§fTryk her for at gå til §a§nranks§f!"
-        - "§fIndeholder:"
-        - "§8» §6§nKAPTAJN§f §nRANK"
-        - "§8» §3§nSØMAND§f §nRANK"
-        - "§8» §c§nSKIPPER§f §nRANK"
-        - "§8» §d§nMATROS§f §nRANK"
+        id: 46947
+        slot: 20
+        name: §a§l§nRANKS
+        lore:
+          - "§fTryk her for at gå til §a§nranks§f!"
+          - "§fIndeholder:"
+          - "§8» §6§nKAPTAJN§f §nRANK"
+          - "§8» §3§nSØMAND§f §nRANK"
+          - "§8» §c§nSKIPPER§f §nRANK"
+          - "§8» §d§nMATROS§f §nRANK"
     head2:
       id: 46948
       slot: 22
@@ -40,3 +41,56 @@ guis:
       - "§8» §a§nAUTO§f §nSELL"
       - "§8» §b§nFLY§f §nKOMMANDO"
       - "§8» §9§nFISKENET"
+  ranks:
+    guinavn: §3§lBUTIK§8 • §f§lRANKS
+    guirows: 5
+    luk:
+      id: 3229
+      slot: 44
+      name: §cGå tilbage
+      lore:
+      - "§7Tryk her for at gå tilbage"
+    head1:
+      id: 1
+      slot: 19
+      price: 3500
+      name: §c§lSKIPPER §f§lRANK
+      lore:
+        - "§f§n§oInformation:"
+        - "§8» §f..."
+        - "§fPris: §c3.500 Coins"
+      commands:
+        - "/lp user <player> parent add skipper"
+    head2:
+      id: 2
+      slot: 21
+      price: 5000
+      name: §d§lMATROS §f§lRANK
+      lore:
+        - "§f§n§oInformation:"
+        - "§8» §f..."
+        - "§fPris: §d5.000 Coins"
+      commands:
+        - "/lp user <player> parent add matros"
+    head3:
+      id: 3
+      slot: 23
+      price: 8500
+      name: §3§lSØMAND §f§lRANK
+      lore:
+        - "§f§n§oInformation:"
+        - "§8» §f..."
+        - "§fPris: §38.500 Coins"
+      commands:
+        - "/lp user <player> parent add sømand"
+    head4:
+      id: 4
+      slot: 25
+      price: 12500
+      name: §6§lKAPTAJN §f§lRANK
+      lore:
+        - "§f§n§oInformation:"
+        - "§8» §f..."
+        - "§fPris: §612.500 Coins"
+      commands:
+        - "/lp user <player> parent add kaptajn"

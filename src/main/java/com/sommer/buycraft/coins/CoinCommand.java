@@ -89,7 +89,7 @@ public class CoinCommand implements CommandExecutor {
                             } else {
                                 player.sendMessage(" §a");
                                 player.sendMessage("§8[§4§lCOIN §f§lSYSTEM§8]");
-                                player.sendMessage(" §cDu skal skrive &4&n/Coins Add (Spiller) (Antal)");
+                                player.sendMessage(" §cDu skal skrive §4§n/Coins Add (Spiller) (Antal)");
                                 player.sendMessage(" §b");
                             }
                         }
@@ -108,7 +108,7 @@ public class CoinCommand implements CommandExecutor {
                             } else {
                                 player.sendMessage(" §a");
                                 player.sendMessage("§8[§4§lCOIN §f§lSYSTEM§8]");
-                                player.sendMessage(" §cDu skal skrive &4&n/Coins Remove (Spiller) (Antal)");
+                                player.sendMessage(" §cDu skal skrive §4§n/Coins Remove (Spiller) (Antal)");
                                 player.sendMessage(" §b");
                             }
                         }
@@ -147,12 +147,13 @@ public class CoinCommand implements CommandExecutor {
                         player.sendMessage(" §cDu kan gøre brug af følgende kommandoer:");
                         player.sendMessage(" §c/coins ..");
                         player.sendMessage(" §8» §c.. tjek (spiller)");
+                        player.sendMessage(" §8» §c.. indsæt");
                         if (player.hasPermission("admin")) {
                             player.sendMessage(" §6§nAdmin kommandoer:");
                             player.sendMessage(" §8» §c.. add (spiller) (antal)");
                             player.sendMessage(" §8» §c.. remove (spiller) (antal)");
                             player.sendMessage(" §8» §c.. set (spiller) (antal)");
-                            player.sendMessage(" §8» §creload");
+                            player.sendMessage(" §8» §c.. reload");
                         }
                         player.sendMessage(" §b");
                     }
